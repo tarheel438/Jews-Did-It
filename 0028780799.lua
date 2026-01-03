@@ -166,8 +166,14 @@ task.spawn(function()
 end)
 
 
-local function isOwnError(msg)
-    return msg:match("BallEvent") or msg:match("PlayerEvent") or msg:match("TeleportService") or msg:match("ReplicatedStorage")
+local function isOwnError(msg: string): boolean
+    return msg:match("BallEvent") 
+        or msg:match("PlayerEvent") 
+        or msg:match("TeleportService") 
+        or msg:match("ReplicatedStorage")
+        or msg:match("MarketplaceService")
+        or msg:match("getProductInfo")
+        or msg:match("GetProductInfo")
 end
 
 game:GetService("LogService").MessageOut:Connect(function(msg, msgType)
