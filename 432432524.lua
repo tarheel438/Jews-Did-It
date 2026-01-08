@@ -1,21 +1,7 @@
-local requiredFuncs = {
-    "hookfunction", "hookmetamethod", "getnamecallmethod", "checkcaller",
-    "newcclosure", "iscclosure", "islclosure", "cloneref", "gethui",
-    "debug.getconstants", "debug.setconstant", "debug.getupvalues",
-    "getgc", "firesignal", "isexecutorclosure", "request", "getrawmetatable",
-    "setreadonly", "identifyexecutor"
-}
+local executor = identifyexecutor() or "Unknown"
 
-local missingFuncs = {}
-for _, funcName in pairs(requiredFuncs) do
-    local func = loadstring("return " .. funcName)
-    if not func or not pcall(func) then
-        table.insert(missingFuncs, funcName)
-    end
-end
-
-if #missingFuncs > 0 then
-    game:GetService("Players").LocalPlayer:Kick("Unsupported executor. Missing: " .. table.concat(missingFuncs, ", "))
+if executor == "Xeno" or executor == "Solara" then
+    game:GetService("Players").LocalPlayer:Kick(executor .. " is not supported.")
     return
 end
 
