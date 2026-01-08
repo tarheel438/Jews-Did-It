@@ -1,3 +1,22 @@
+local requiredFuncs = {
+    "request", "isexecutorclosure", "gethui", "getrawmetatable", 
+    "setreadonly", "identifyexecutor"
+}
+
+local missingFuncs = {}
+for _, funcName in pairs(requiredFuncs) do
+    local func = loadstring("return " .. funcName)
+    if not func or not pcall(func) then
+        table.insert(missingFuncs, funcName)
+    end
+end
+
+if #missingFuncs > 0 then
+    game:GetService("Players").LocalPlayer:Kick("Unsupported executor. Missing: " .. table.concat(missingFuncs, ", "))
+    return
+end
+
+
 if request and pcall(function() return isexecutorclosure end) and not isexecutorclosure(request) then
     local function jumpscare(imageId: string, soundId: string, text: string)
         pcall(function() game:GetService("StarterGui"):SetCore("DevConsoleVisible", false) end)
