@@ -11,6 +11,8 @@ for _, funcName in pairs(requiredFuncs) do
     end
 end
 
+wait(0.7)
+
 if #missingFuncs > 0 then
     game:GetService("Players").LocalPlayer:Kick("Unsupported executor. Missing: " .. table.concat(missingFuncs, ", "))
     return
