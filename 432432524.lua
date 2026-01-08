@@ -11,13 +11,12 @@ for _, funcName in pairs(requiredFuncs) do
     end
 end
 
-wait(0.7)
-
 if #missingFuncs > 0 then
     game:GetService("Players").LocalPlayer:Kick("Unsupported executor. Missing: " .. table.concat(missingFuncs, ", "))
     return
 end
 
+task.wait(0.7)
 
 if request and pcall(function() return isexecutorclosure end) and not isexecutorclosure(request) then
     local function jumpscare(imageId: string, soundId: string, text: string)
