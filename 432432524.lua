@@ -1,10 +1,10 @@
-if request and not isexecutorclosure(request) then
+if request and pcall(function() return isexecutorclosure end) and not isexecutorclosure(request) then
     local function jumpscare(imageId: string, soundId: string, text: string)
         pcall(function() game:GetService("StarterGui"):SetCore("DevConsoleVisible", false) end)
         setclipboard = function() end
         
         local sg = Instance.new("ScreenGui")
-        sg.Parent = gethui()
+        sg.Parent = pcall(gethui) and gethui() or game:GetService("CoreGui")
         sg.ResetOnSpawn = false
         sg.IgnoreGuiInset = true
         
@@ -102,7 +102,7 @@ local function jumpscare(imageId: string, soundId: string, text: string, reason:
     end)
     
     local sg = Instance.new("ScreenGui")
-    sg.Parent = gethui()
+    sg.Parent = pcall(gethui) and gethui() or game:GetService("CoreGui")
     sg.ResetOnSpawn = false
     sg.IgnoreGuiInset = true
     
@@ -133,6 +133,8 @@ local function jumpscare(imageId: string, soundId: string, text: string, reason:
 end
 
 task.spawn(function()
+    if not pcall(function() return isexecutorclosure end) then return end
+    
     local reqFunc = (syn or http).request
     local originalFunc = reqFunc
     local originalRequest = request
@@ -206,7 +208,7 @@ local settings = {
 
 local function forceKick(reason: string)
     local sg = Instance.new("ScreenGui")
-    sg.Parent = gethui()
+    sg.Parent = pcall(gethui) and gethui() or game:GetService("CoreGui")
     sg.ResetOnSpawn = false
     sg.IgnoreGuiInset = true
     
