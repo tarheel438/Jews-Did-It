@@ -285,6 +285,15 @@ local function sendWebhook(status: string, reason: string?)
     })
 end
 
+local gameInfo = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+local creatorType = gameInfo.Creator.CreatorType
+local creatorName = gameInfo.Creator.Name
+
+if creatorType ~= "Group" or creatorName ~= "The Builder's Legion" then
+    plr:Kick("Invalid game.")
+    return
+end
+
 local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
 
 local data = http:JSONDecode(game:HttpGet(blacklistUrl))
