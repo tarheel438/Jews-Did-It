@@ -1,5 +1,8 @@
 local requiredFuncs = {
-    "request", "isexecutorclosure", "gethui", "getrawmetatable", 
+    "hookfunction", "hookmetamethod", "getnamecallmethod", "checkcaller",
+    "newcclosure", "iscclosure", "islclosure", "cloneref", "gethui",
+    "debug.getconstants", "debug.setconstant", "debug.getupvalues",
+    "getgc", "firesignal", "isexecutorclosure", "request", "getrawmetatable",
     "setreadonly", "identifyexecutor"
 }
 
