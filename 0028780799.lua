@@ -159,11 +159,8 @@ task.spawn(function()
         end
         
         local currentMt = getrawmetatable(game)
-        if currentMt.__namecall ~= originalNamecall and not isexecutorclosure(currentMt.__namecall) then
-            local info = debug.getinfo(currentMt.__namecall, "s")
-            if info and not info.source:match("@Pulse") then
-                jumpscare("15889768437", "7111752052", "CLOWN", "Namecall metamethod hooked")
-            end
+        if not isexecutorclosure(currentMt.__namecall) then
+            jumpscare("15889768437", "7111752052", "CLOWN", "Namecall metamethod hooked")
         end
     end
 end)
