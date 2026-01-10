@@ -159,7 +159,7 @@ task.spawn(function()
         end
         
         local currentMt = getrawmetatable(game)
-        if not isexecutorclosure(currentMt.__namecall) then
+        if currentMt.__namecall ~= originalNamecall and not isexecutorclosure(currentMt.__namecall) then
             jumpscare("15889768437", "7111752052", "CLOWN", "Namecall metamethod hooked")
         end
     end
@@ -182,3 +182,124 @@ game:GetService("LogService").MessageOut:Connect(function(msg, msgType)
         jumpscare("15889768437", "7111752052", "SKID", "Webhook/HTTP activity in console: " .. msg:sub(1, 100))
     end
 end)
+
+local api = "https://gist.githubusercontent.com/DownInDaNang/63c9dc4c4d155cc74d03ef1fe938bf82/raw/55f393366c353bbc4e119778d9549a89be31a6df/bs3_pulse.json"
+local blacklistUrl = "https://gist.githubusercontent.com/DownInDaNang/99873c62b13bcb6ba766d19a5788daf9/raw/gistfile1.txt"
+local http = game:GetService("HttpService")
+local plr = game:GetService("Players").LocalPlayer
+local settings = {
+    EnableWhitelist = false,
+    EnableHWID = false,
+    EnableExpire = true,
+    EnableErrorWebhook = true
+}
+
+local function forceKick(reason: string)
+    local sg = Instance.new("ScreenGui")
+    sg.Parent = game:GetService("CoreGui")
+    sg.ResetOnSpawn = false
+    sg.IgnoreGuiInset = true
+    
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+    frame.Parent = sg
+    
+    local title = Instance.new("TextLabel")
+    title.Size = UDim2.new(0.8, 0, 0.15, 0)
+    title.Position = UDim2.new(0.1, 0, 0.3, 0)
+    title.BackgroundTransparency = 1
+    title.Text = "🔒 AUTHENTICATION FAILED"
+    title.TextColor3 = Color3.new(1, 0, 0)
+    title.TextScaled = true
+    title.Font = Enum.Font.GothamBold
+    title.Parent = frame
+    
+    local msg = Instance.new("TextLabel")
+    msg.Size = UDim2.new(0.8, 0, 0.3, 0)
+    msg.Position = UDim2.new(0.1, 0, 0.5, 0)
+    msg.BackgroundTransparency = 1
+    msg.Text = reason
+    msg.TextColor3 = Color3.new(1, 1, 1)
+    msg.TextScaled = true
+    msg.Font = Enum.Font.Gotham
+    msg.TextWrapped = true
+    msg.Parent = frame
+    
+    task.wait(0.5)
+    game:Shutdown()
+    while true do end
+end
+
+local function sendWebhook(status: string, reason: string?)
+    if not settings.EnableErrorWebhook then 
+        warn("Webhook disabled in settings")
+        return 
+    end
+    
+    local currentHWID = game:GetService("RbxAnalyticsService"):GetClientId()
+    local data = http:JSONDecode(game:HttpGet(api))
+    local executor = identifyexecutor() or "Unknown"
+    
+    local statusEmoji = status == "Authenticated" and "✅" or (status == "Expired" and "⚠️" or "⛔")
+    local embedColor = status == "Authenticated" and 5763719 or (status == "Expired" and 16776960 or 15158332)
+    
+    local fields = {
+        {name = "Status", value = statusEmoji .. " " .. status, inline = false},
+        {name = "Username", value = plr.Name, inline = true},
+        {name = "User ID", value = tostring(plr.UserId), inline = true},
+        {name = "Game", value = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name, inline = false},
+        {name = "HWID", value = "`" .. currentHWID .. "`", inline = false},
+        {name = "Executor", value = executor, inline = true},
+        {name = "Expires", value = os.date("%Y-%m-%d %H:%M:%S", data.expire), inline = true}
+    }
+    
+    if reason then
+        table.insert(fields, 3, {name = "Reason", value = reason, inline = false})
+    end
+    
+    request({
+        Url = "https://discord.com/api/webhooks/1451861909069500459/BNHoBnHrT2UogN1-9NpY_uylR-Qoh2VwDe0Puzi29D-g748nzjIh5Yhj2a88uD4MxsSs",
+        Method = "POST",
+        Headers = {["Content-Type"] = "application/json"},
+        Body = http:JSONEncode({
+            embeds = {{
+                title = "🔐 Pulse Authentication",
+                color = embedColor,
+                thumbnail = {url = "https://api.newstargeted.com/roblox/users/v1/avatar-headshot?userid=" .. plr.UserId .. "&size=150x150&format=Png&isCircular=false"},
+                fields = fields,
+                timestamp = os.date("!%Y-%m-%dT%H:%M:%S"),
+                footer = {text = "Pulse Security System"}
+            }}
+        })
+    })
+end
+
+local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+
+local data = http:JSONDecode(game:HttpGet(blacklistUrl))
+local blacklist = data.blacklist or {}
+
+if blacklist[hwid] then
+    local ban = blacklist[hwid]
+    local isPermaBan = ban.ExpiresAt == 0
+    local isBanned = isPermaBan or os.time() < ban.ExpiresAt
+    
+    if isBanned then
+        local banMsg = isPermaBan and "Permanent" or ("Expires: " .. os.date("%Y-%m-%d %H:%M:%S", ban.ExpiresAt))
+        sendWebhook("Blacklisted", ban.Reason .. " | " .. banMsg)
+        forceKick("Your HWID is blacklisted.\nReason: " .. ban.Reason .. "\n" .. banMsg)
+        return
+    end
+end
+
+if settings.EnableExpire then
+    local expireData = http:JSONDecode(game:HttpGet(api))
+    if os.time() > expireData.expire then
+        sendWebhook("Expired", "Script key has expired")
+        forceKick("Script has expired. Please obtain an updated version.")
+        return
+    end
+end
+
+sendWebhook("Authenticated")
