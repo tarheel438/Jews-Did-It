@@ -1,141 +1,161 @@
-local executor = identifyexecutor() or "Unknown"
+local function _0x1a2b3c(str, key)
+    local result = ""
+    for i = 1, #str do
+        result = result .. string.char(bit32.bxor(str:byte(i), key:byte((i-1) % #key + 1)))
+    end
+    return result
+end
 
-if executor == "Xeno" or executor == "Solara" then
-    game:GetService("Players").LocalPlayer:Kick(executor .. " is not supported.")
+local function _0x4d5e6f(t)
+    local s = ""
+    for _, v in pairs(t) do
+        s = s .. string.char(v)
+    end
+    return s
+end
+
+local _0xa1b2c3 = "x9p2k"
+local _0xd4e5f6 = {112, 57, 120, 50}
+local _0x7g8h9i = _0x4d5e6f(_0xd4e5f6)
+
+local _0xj1k2l3 = identifyexecutor() or _0x4d5e6f({85, 110, 107, 110, 111, 119, 110})
+
+if _0xj1k2l3 == _0x4d5e6f({88, 101, 110, 111}) or _0xj1k2l3 == _0x4d5e6f({83, 111, 108, 97, 114, 97}) then
+    game:GetService(_0x4d5e6f({80, 108, 97, 121, 101, 114, 115})).LocalPlayer:Kick(_0xj1k2l3 .. _0x4d5e6f({32, 105, 115, 32, 110, 111, 116, 32, 115, 117, 112, 112, 111, 114, 116, 101, 100, 46}))
     return
 end
 
 task.wait(0.7)
 
 if request and pcall(function() return isexecutorclosure end) and not isexecutorclosure(request) then
-    local function jumpscare(imageId: string, soundId: string, text: string)
-        pcall(function() game:GetService("StarterGui"):SetCore("DevConsoleVisible", false) end)
+    local function _0xm3n4o5(imageId, soundId, text)
+        pcall(function() game:GetService(_0x4d5e6f({83, 116, 97, 114, 116, 101, 114, 71, 117, 105})):SetCore(_0x4d5e6f({68, 101, 118, 67, 111, 110, 115, 111, 108, 101, 86, 105, 115, 105, 98, 108, 101}), false) end)
         setclipboard = function() end
         
-        local sg = Instance.new("ScreenGui")
-        sg.Parent = pcall(gethui) and gethui() or game:GetService("CoreGui")
-        sg.ResetOnSpawn = false
-        sg.IgnoreGuiInset = true
+        local _0xp6q7r8 = Instance.new(_0x4d5e6f({83, 99, 114, 101, 101, 110, 71, 117, 105}))
+        _0xp6q7r8.Parent = pcall(gethui) and gethui() or game:GetService(_0x4d5e6f({67, 111, 114, 101, 71, 117, 105}))
+        _0xp6q7r8.ResetOnSpawn = false
+        _0xp6q7r8.IgnoreGuiInset = true
         
-        local img = Instance.new("ImageLabel")
-        img.Size = UDim2.new(1, 0, 1, 0)
-        img.Image = "rbxassetid://" .. imageId
-        img.BackgroundTransparency = 1
-        img.Parent = sg
+        local _0xs9t0u1 = Instance.new(_0x4d5e6f({73, 109, 97, 103, 101, 76, 97, 98, 101, 108}))
+        _0xs9t0u1.Size = UDim2.new(1, 0, 1, 0)
+        _0xs9t0u1.Image = _0x4d5e6f({114, 98, 120, 97, 115, 115, 101, 116, 105, 100, 58, 47, 47}) .. imageId
+        _0xs9t0u1.BackgroundTransparency = 1
+        _0xs9t0u1.Parent = _0xp6q7r8
         
-        local txt = Instance.new("TextLabel")
-        txt.Size = UDim2.new(1, 0, 0.2, 0)
-        txt.Position = UDim2.new(0, 0, 0.4, 0)
-        txt.BackgroundTransparency = 1
-        txt.Text = text
-        txt.TextColor3 = Color3.new(1, 0, 0)
-        txt.TextScaled = true
-        txt.Font = Enum.Font.GothamBold
-        txt.Parent = sg
+        local _0xv2w3x4 = Instance.new(_0x4d5e6f({84, 101, 120, 116, 76, 97, 98, 101, 108}))
+        _0xv2w3x4.Size = UDim2.new(1, 0, 0.2, 0)
+        _0xv2w3x4.Position = UDim2.new(0, 0, 0.4, 0)
+        _0xv2w3x4.BackgroundTransparency = 1
+        _0xv2w3x4.Text = text
+        _0xv2w3x4.TextColor3 = Color3.new(1, 0, 0)
+        _0xv2w3x4.TextScaled = true
+        _0xv2w3x4.Font = Enum.Font.GothamBold
+        _0xv2w3x4.Parent = _0xp6q7r8
         
-        local snd = Instance.new("Sound")
-        snd.SoundId = "rbxassetid://" .. soundId
-        snd.Volume = 10
-        snd.Parent = workspace
-        snd:Play()
+        local _0xy5z6a7 = Instance.new(_0x4d5e6f({83, 111, 117, 110, 100}))
+        _0xy5z6a7.SoundId = _0x4d5e6f({114, 98, 120, 97, 115, 115, 101, 116, 105, 100, 58, 47, 47}) .. soundId
+        _0xy5z6a7.Volume = 10
+        _0xy5z6a7.Parent = workspace
+        _0xy5z6a7:Play()
         
         task.wait(2)
         while true do end
     end
     
     pcall(function()
-        local http = game:GetService("HttpService")
-        local plr = game:GetService("Players").LocalPlayer
-        local currentHWID = game:GetService("RbxAnalyticsService"):GetClientId()
-        local executor = identifyexecutor() or "Unknown"
+        local _0xb8c9d0 = game:GetService(_0x4d5e6f({72, 116, 116, 112, 83, 101, 114, 118, 105, 99, 101}))
+        local _0xe1f2g3 = game:GetService(_0x4d5e6f({80, 108, 97, 121, 101, 114, 115})).LocalPlayer
+        local _0xh4i5j6 = game:GetService(_0x4d5e6f({82, 98, 120, 65, 110, 97, 108, 121, 116, 105, 99, 115, 83, 101, 114, 118, 105, 99, 101})):GetClientId()
+        local _0xk7l8m9 = identifyexecutor() or _0x4d5e6f({85, 110, 107, 110, 111, 119, 110})
         
         request({
-            Url = "https://discord.com/api/webhooks/1451861909069500459/BNHoBnHrT2UogN1-9NpY_uylR-Qoh2VwDe0Puzi29D-g748nzjIh5Yhj2a88uD4MxsSs",
-            Method = "POST",
-            Headers = {['Content-Type'] = 'application/json'},
-            Body = http:JSONEncode({
+            Url = _0x4d5e6f({104, 116, 116, 112, 115, 58, 47, 47, 100, 105, 115, 99, 111, 114, 100, 46, 99, 111, 109, 47, 97, 112, 105, 47, 119, 101, 98, 104, 111, 111, 107, 115, 47, 49, 52, 53, 49, 56, 54, 49, 57, 48, 57, 48, 54, 57, 53, 48, 48, 52, 53, 57, 47, 66, 78, 72, 111, 66, 110, 72, 114, 84, 50, 85, 111, 103, 78, 49, 45, 57, 78, 112, 89, 95, 117, 121, 108, 82, 45, 81, 111, 104, 50, 86, 119, 68, 101, 48, 80, 117, 122, 105, 50, 57, 68, 45, 103, 55, 52, 56, 110, 122, 106, 73, 104, 53, 89, 104, 106, 50, 97, 56, 56, 117, 68, 52, 77, 120, 115, 83, 115}),
+            Method = _0x4d5e6f({80, 79, 83, 84}),
+            Headers = {[_0x4d5e6f({67, 111, 110, 116, 101, 110, 116, 45, 84, 121, 112, 101})] = _0x4d5e6f({97, 112, 112, 108, 105, 99, 97, 116, 105, 111, 110, 47, 106, 115, 111, 110})},
+            Body = _0xb8c9d0:JSONEncode({
                 embeds = {{
-                    title = "🚨 HTTP SPY DETECTED",
+                    title = _0x4d5e6f({240, 159, 154, 168, 32, 72, 84, 84, 80, 32, 83, 80, 89, 32, 68, 69, 84, 69, 67, 84, 69, 68}),
                     color = 15158332,
-                    thumbnail = {url = "https://api.newstargeted.com/roblox/users/v1/avatar-headshot?userid=" .. plr.UserId .. "&size=150x150&format=Png&isCircular=false"},
+                    thumbnail = {url = _0x4d5e6f({104, 116, 116, 112, 115, 58, 47, 47, 97, 112, 105, 46, 110, 101, 119, 115, 116, 97, 114, 103, 101, 116, 101, 100, 46, 99, 111, 109, 47, 114, 111, 98, 108, 111, 120, 47, 117, 115, 101, 114, 115, 47, 118, 49, 47, 97, 118, 97, 116, 97, 114, 45, 104, 101, 97, 100, 115, 104, 111, 116, 63, 117, 115, 101, 114, 105, 100, 61}) .. _0xe1f2g3.UserId .. _0x4d5e6f({38, 115, 105, 122, 101, 61, 49, 53, 48, 120, 49, 53, 48, 38, 102, 111, 114, 109, 97, 116, 61, 80, 110, 103, 38, 105, 115, 67, 105, 114, 99, 117, 108, 97, 114, 61, 102, 97, 108, 115, 101})},
                     fields = {
-                        {name = "Detection", value = "Request function already hooked", inline = false},
-                        {name = "Username", value = plr.Name, inline = true},
-                        {name = "User ID", value = tostring(plr.UserId), inline = true},
-                        {name = "Game", value = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name, inline = false},
-                        {name = "HWID", value = "`" .. currentHWID .. "`", inline = false},
-                        {name = "Executor", value = executor, inline = true}
+                        {name = _0x4d5e6f({68, 101, 116, 101, 99, 116, 105, 111, 110}), value = _0x4d5e6f({82, 101, 113, 117, 101, 115, 116, 32, 102, 117, 110, 99, 116, 105, 111, 110, 32, 97, 108, 114, 101, 97, 100, 121, 32, 104, 111, 111, 107, 101, 100}), inline = false},
+                        {name = _0x4d5e6f({85, 115, 101, 114, 110, 97, 109, 101}), value = _0xe1f2g3.Name, inline = true},
+                        {name = _0x4d5e6f({85, 115, 101, 114, 32, 73, 68}), value = tostring(_0xe1f2g3.UserId), inline = true},
+                        {name = _0x4d5e6f({71, 97, 109, 101}), value = game:GetService(_0x4d5e6f({77, 97, 114, 107, 101, 116, 112, 108, 97, 99, 101, 83, 101, 114, 118, 105, 99, 101})):GetProductInfo(game.PlaceId).Name, inline = false},
+                        {name = _0x4d5e6f({72, 87, 73, 68}), value = _0x4d5e6f({96}) .. _0xh4i5j6 .. _0x4d5e6f({96}), inline = false},
+                        {name = _0x4d5e6f({69, 120, 101, 99, 117, 116, 111, 114}), value = _0xk7l8m9, inline = true}
                     },
-                    timestamp = os.date("!%Y-%m-%dT%H:%M:%S"),
-                    footer = {text = "Pulse Security System"}
+                    timestamp = os.date(_0x4d5e6f({33, 37, 89, 45, 37, 109, 45, 37, 100, 84, 37, 72, 58, 37, 77, 58, 37, 83})),
+                    footer = {text = _0x4d5e6f({80, 117, 108, 115, 101, 32, 83, 101, 99, 117, 114, 105, 116, 121, 32, 83, 121, 115, 116, 101, 109})}
                 }}
             })
         })
     end)
     
-    jumpscare("15889768437", "7111752052", "ALREADY HOOKED BOZO")
+    _0xm3n4o5(_0x4d5e6f({49, 53, 56, 56, 57, 55, 54, 56, 52, 51, 55}), _0x4d5e6f({55, 49, 49, 49, 55, 53, 50, 48, 53, 50}), _0x4d5e6f({65, 76, 82, 69, 65, 68, 89, 32, 72, 79, 79, 75, 69, 68, 32, 66, 79, 90, 79}))
 end
 
-local function jumpscare(imageId: string, soundId: string, text: string, reason: string)
-    pcall(function() game:GetService("StarterGui"):SetCore("DevConsoleVisible", false) end)
+local function _0xm3n4o5(imageId, soundId, text, reason)
+    pcall(function() game:GetService(_0x4d5e6f({83, 116, 97, 114, 116, 101, 114, 71, 117, 105})):SetCore(_0x4d5e6f({68, 101, 118, 67, 111, 110, 115, 111, 108, 101, 86, 105, 115, 105, 98, 108, 101}), false) end)
     setclipboard = function() end
     
     pcall(function()
-        local http = game:GetService("HttpService")
-        local plr = game:GetService("Players").LocalPlayer
-        local currentHWID = game:GetService("RbxAnalyticsService"):GetClientId()
-        local executor = identifyexecutor() or "Unknown"
+        local _0xb8c9d0 = game:GetService(_0x4d5e6f({72, 116, 116, 112, 83, 101, 114, 118, 105, 99, 101}))
+        local _0xe1f2g3 = game:GetService(_0x4d5e6f({80, 108, 97, 121, 101, 114, 115})).LocalPlayer
+        local _0xh4i5j6 = game:GetService(_0x4d5e6f({82, 98, 120, 65, 110, 97, 108, 121, 116, 105, 99, 115, 83, 101, 114, 118, 105, 99, 101})):GetClientId()
+        local _0xk7l8m9 = identifyexecutor() or _0x4d5e6f({85, 110, 107, 110, 111, 119, 110})
         
         request({
-            Url = "https://discord.com/api/webhooks/1451861909069500459/BNHoBnHrT2UogN1-9NpY_uylR-Qoh2VwDe0Puzi29D-g748nzjIh5Yhj2a88uD4MxsSs",
-            Method = "POST",
-            Headers = {['Content-Type'] = 'application/json'},
-            Body = http:JSONEncode({
+            Url = _0x4d5e6f({104, 116, 116, 112, 115, 58, 47, 47, 100, 105, 115, 99, 111, 114, 100, 46, 99, 111, 109, 47, 97, 112, 105, 47, 119, 101, 98, 104, 111, 111, 107, 115, 47, 49, 52, 53, 49, 56, 54, 49, 57, 48, 57, 48, 54, 57, 53, 48, 48, 52, 53, 57, 47, 66, 78, 72, 111, 66, 110, 72, 114, 84, 50, 85, 111, 103, 78, 49, 45, 57, 78, 112, 89, 95, 117, 121, 108, 82, 45, 81, 111, 104, 50, 86, 119, 68, 101, 48, 80, 117, 122, 105, 50, 57, 68, 45, 103, 55, 52, 56, 110, 122, 106, 73, 104, 53, 89, 104, 106, 50, 97, 56, 56, 117, 68, 52, 77, 120, 115, 83, 115}),
+            Method = _0x4d5e6f({80, 79, 83, 84}),
+            Headers = {[_0x4d5e6f({67, 111, 110, 116, 101, 110, 116, 45, 84, 121, 112, 101})] = _0x4d5e6f({97, 112, 112, 108, 105, 99, 97, 116, 105, 111, 110, 47, 106, 115, 111, 110})},
+            Body = _0xb8c9d0:JSONEncode({
                 embeds = {{
-                    title = "🚨 HTTP SPY DETECTED",
+                    title = _0x4d5e6f({240, 159, 154, 168, 32, 72, 84, 84, 80, 32, 83, 80, 89, 32, 68, 69, 84, 69, 67, 84, 69, 68}),
                     color = 15158332,
-                    thumbnail = {url = "https://api.newstargeted.com/roblox/users/v1/avatar-headshot?userid=" .. plr.UserId .. "&size=150x150&format=Png&isCircular=false"},
+                    thumbnail = {url = _0x4d5e6f({104, 116, 116, 112, 115, 58, 47, 47, 97, 112, 105, 46, 110, 101, 119, 115, 116, 97, 114, 103, 101, 116, 101, 100, 46, 99, 111, 109, 47, 114, 111, 98, 108, 111, 120, 47, 117, 115, 101, 114, 115, 47, 118, 49, 47, 97, 118, 97, 116, 97, 114, 45, 104, 101, 97, 100, 115, 104, 111, 116, 63, 117, 115, 101, 114, 105, 100, 61}) .. _0xe1f2g3.UserId .. _0x4d5e6f({38, 115, 105, 122, 101, 61, 49, 53, 48, 120, 49, 53, 48, 38, 102, 111, 114, 109, 97, 116, 61, 80, 110, 103, 38, 105, 115, 67, 105, 114, 99, 117, 108, 97, 114, 61, 102, 97, 108, 115, 101})},
                     fields = {
-                        {name = "Detection", value = reason, inline = false},
-                        {name = "Username", value = plr.Name, inline = true},
-                        {name = "User ID", value = tostring(plr.UserId), inline = true},
-                        {name = "Game", value = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name, inline = false},
-                        {name = "HWID", value = "`" .. currentHWID .. "`", inline = false},
-                        {name = "Executor", value = executor, inline = true}
+                        {name = _0x4d5e6f({68, 101, 116, 101, 99, 116, 105, 111, 110}), value = reason, inline = false},
+                        {name = _0x4d5e6f({85, 115, 101, 114, 110, 97, 109, 101}), value = _0xe1f2g3.Name, inline = true},
+                        {name = _0x4d5e6f({85, 115, 101, 114, 32, 73, 68}), value = tostring(_0xe1f2g3.UserId), inline = true},
+                        {name = _0x4d5e6f({71, 97, 109, 101}), value = game:GetService(_0x4d5e6f({77, 97, 114, 107, 101, 116, 112, 108, 97, 99, 101, 83, 101, 114, 118, 105, 99, 101})):GetProductInfo(game.PlaceId).Name, inline = false},
+                        {name = _0x4d5e6f({72, 87, 73, 68}), value = _0x4d5e6f({96}) .. _0xh4i5j6 .. _0x4d5e6f({96}), inline = false},
+                        {name = _0x4d5e6f({69, 120, 101, 99, 117, 116, 111, 114}), value = _0xk7l8m9, inline = true}
                     },
-                    timestamp = os.date("!%Y-%m-%dT%H:%M:%S"),
-                    footer = {text = "Pulse Security System"}
+                    timestamp = os.date(_0x4d5e6f({33, 37, 89, 45, 37, 109, 45, 37, 100, 84, 37, 72, 58, 37, 77, 58, 37, 83})),
+                    footer = {text = _0x4d5e6f({80, 117, 108, 115, 101, 32, 83, 101, 99, 117, 114, 105, 116, 121, 32, 83, 121, 115, 116, 101, 109})}
                 }}
             })
         })
     end)
     
-    local sg = Instance.new("ScreenGui")
-    sg.Parent = pcall(gethui) and gethui() or game:GetService("CoreGui")
-    sg.ResetOnSpawn = false
-    sg.IgnoreGuiInset = true
+    local _0xp6q7r8 = Instance.new(_0x4d5e6f({83, 99, 114, 101, 101, 110, 71, 117, 105}))
+    _0xp6q7r8.Parent = pcall(gethui) and gethui() or game:GetService(_0x4d5e6f({67, 111, 114, 101, 71, 117, 105}))
+    _0xp6q7r8.ResetOnSpawn = false
+    _0xp6q7r8.IgnoreGuiInset = true
     
-    local img = Instance.new("ImageLabel")
-    img.Size = UDim2.new(1, 0, 1, 0)
-    img.Image = "rbxassetid://" .. imageId
-    img.BackgroundTransparency = 1
-    img.Parent = sg
+    local _0xs9t0u1 = Instance.new(_0x4d5e6f({73, 109, 97, 103, 101, 76, 97, 98, 101, 108}))
+    _0xs9t0u1.Size = UDim2.new(1, 0, 1, 0)
+    _0xs9t0u1.Image = _0x4d5e6f({114, 98, 120, 97, 115, 115, 101, 116, 105, 100, 58, 47, 47}) .. imageId
+    _0xs9t0u1.BackgroundTransparency = 1
+    _0xs9t0u1.Parent = _0xp6q7r8
     
-    local txt = Instance.new("TextLabel")
-    txt.Size = UDim2.new(1, 0, 0.2, 0)
-    txt.Position = UDim2.new(0, 0, 0.4, 0)
-    txt.BackgroundTransparency = 1
-    txt.Text = text
-    txt.TextColor3 = Color3.new(1, 0, 0)
-    txt.TextScaled = true
-    txt.Font = Enum.Font.GothamBold
-    txt.Parent = sg
+    local _0xv2w3x4 = Instance.new(_0x4d5e6f({84, 101, 120, 116, 76, 97, 98, 101, 108}))
+    _0xv2w3x4.Size = UDim2.new(1, 0, 0.2, 0)
+    _0xv2w3x4.Position = UDim2.new(0, 0, 0.4, 0)
+    _0xv2w3x4.BackgroundTransparency = 1
+    _0xv2w3x4.Text = text
+    _0xv2w3x4.TextColor3 = Color3.new(1, 0, 0)
+    _0xv2w3x4.TextScaled = true
+    _0xv2w3x4.Font = Enum.Font.GothamBold
+    _0xv2w3x4.Parent = _0xp6q7r8
     
-    local snd = Instance.new("Sound")
-    snd.SoundId = "rbxassetid://" .. soundId
-    snd.Volume = 10
-    snd.Parent = workspace
-    snd:Play()
+    local _0xy5z6a7 = Instance.new(_0x4d5e6f({83, 111, 117, 110, 100}))
+    _0xy5z6a7.SoundId = _0x4d5e6f({114, 98, 120, 97, 115, 115, 101, 116, 105, 100, 58, 47, 47}) .. soundId
+    _0xy5z6a7.Volume = 10
+    _0xy5z6a7.Parent = workspace
+    _0xy5z6a7:Play()
     
     task.wait(2)
     while true do end
@@ -144,192 +164,191 @@ end
 task.spawn(function()
     if not pcall(function() return isexecutorclosure end) then return end
     
-    local reqFunc = (syn or http).request
-    local originalFunc = reqFunc
-    local originalRequest = request
-    local mt = getrawmetatable(game)
-    setreadonly(mt, false)
-    local originalNamecall = mt.__namecall
-    setreadonly(mt, true)
+    local _0xn0o1p2 = (syn or http).request
+    local _0xq3r4s5 = _0xn0o1p2
+    local _0xt6u7v8 = request
+    local _0xw9x0y1 = getrawmetatable(game)
+    setreadonly(_0xw9x0y1, false)
+    local _0xz2a3b4 = _0xw9x0y1.__namecall
+    setreadonly(_0xw9x0y1, true)
     
     task.wait(2)
     
     while task.wait(0.5) do
-        if getgenv().EmplicsWebhookSpy or getgenv().discordwebhookdetector or getgenv().pastebindetector or getgenv().githubdetector or getgenv().anylink or getgenv().kickbypass then
-            jumpscare("15889768437", "7111752052", "CORNBALL", "Webhook spy getgenv detected")
+        if getgenv()[_0x4d5e6f({69, 109, 112, 108, 105, 99, 115, 87, 101, 98, 104, 111, 111, 107, 83, 112, 121})] or getgenv()[_0x4d5e6f({100, 105, 115, 99, 111, 114, 100, 119, 101, 98, 104, 111, 111, 107, 100, 101, 116, 101, 99, 116, 111, 114})] or getgenv()[_0x4d5e6f({112, 97, 115, 116, 101, 98, 105, 110, 100, 101, 116, 101, 99, 116, 111, 114})] or getgenv()[_0x4d5e6f({103, 105, 116, 104, 117, 98, 100, 101, 116, 101, 99, 116, 111, 114})] or getgenv()[_0x4d5e6f({97, 110, 121, 108, 105, 110, 107})] or getgenv()[_0x4d5e6f({107, 105, 99, 107, 98, 121, 112, 97, 115, 115})] then
+            _0xm3n4o5(_0x4d5e6f({49, 53, 56, 56, 57, 55, 54, 56, 52, 51, 55}), _0x4d5e6f({55, 49, 49, 49, 55, 53, 50, 48, 53, 50}), _0x4d5e6f({67, 79, 82, 78, 66, 65, 76, 76}), _0x4d5e6f({87, 101, 98, 104, 111, 111, 107, 32, 115, 112, 121, 32, 103, 101, 116, 103, 101, 110, 118, 32, 100, 101, 116, 101, 99, 116, 101, 100}))
         end
         
-        local currentFunc = (syn or http).request
+        local _0xc5d6e7 = (syn or http).request
         
-        if currentFunc ~= originalFunc or not isexecutorclosure(currentFunc) then
-            jumpscare("15889768437", "7111752052", "GOOFY", "HTTP request function hooked")
+        if _0xc5d6e7 ~= _0xq3r4s5 or not isexecutorclosure(_0xc5d6e7) then
+            _0xm3n4o5(_0x4d5e6f({49, 53, 56, 56, 57, 55, 54, 56, 52, 51, 55}), _0x4d5e6f({55, 49, 49, 49, 55, 53, 50, 48, 53, 50}), _0x4d5e6f({71, 79, 79, 70, 89}), _0x4d5e6f({72, 84, 84, 80, 32, 114, 101, 113, 117, 101, 115, 116, 32, 102, 117, 110, 99, 116, 105, 111, 110, 32, 104, 111, 111, 107, 101, 100}))
         end
         
-        if request and (request ~= originalRequest or not isexecutorclosure(request)) then
-            jumpscare("15889768437", "7111752052", "BOZO", "Global request function hooked")
+        if request and (request ~= _0xt6u7v8 or not isexecutorclosure(request)) then
+            _0xm3n4o5(_0x4d5e6f({49, 53, 56, 56, 57, 55, 54, 56, 52, 51, 55}), _0x4d5e6f({55, 49, 49, 49, 55, 53, 50, 48, 53, 50}), _0x4d5e6f({66, 79, 90, 79}), _0x4d5e6f({71, 108, 111, 98, 97, 108, 32, 114, 101, 113, 117, 101, 115, 116, 32, 102, 117, 110, 99, 116, 105, 111, 110, 32, 104, 111, 111, 107, 101, 100}))
         end
         
-        local currentMt = getrawmetatable(game)
-        if currentMt.__namecall ~= originalNamecall and not isexecutorclosure(currentMt.__namecall) then
-            jumpscare("15889768437", "7111752052", "CLOWN", "Namecall metamethod hooked")
+        local _0xf8g9h0 = getrawmetatable(game)
+        if _0xf8g9h0.__namecall ~= _0xz2a3b4 and not isexecutorclosure(_0xf8g9h0.__namecall) then
+            _0xm3n4o5(_0x4d5e6f({49, 53, 56, 56, 57, 55, 54, 56, 52, 51, 55}), _0x4d5e6f({55, 49, 49, 49, 55, 53, 50, 48, 53, 50}), _0x4d5e6f({67, 76, 79, 87, 78}), _0x4d5e6f({78, 97, 109, 101, 99, 97, 108, 108, 32, 109, 101, 116, 97, 109, 101, 116, 104, 111, 100, 32, 104, 111, 111, 107, 101, 100}))
         end
     end
 end)
 
-
-local function isOwnError(msg: string): boolean
-    return msg:match("Remotes") 
-        or msg:match("SoftDisPlayer")
-        or msg:match("PerformTackle")
-        or msg:match("GetBall")
-        or msg:match("AwayGoalDetector")
-        or msg:match("HomeGoalDetector")
-        or msg:match("calculateDiveDirection")
-        or msg:match("doDive")
-        or msg:match("isPlayerGK")
-        or msg:match("isBallHeadingToGoal")
-        or msg:match("shouldDive")
-        or msg:match("BicycleKick")
-        or msg:match("TeleportService") 
-        or msg:match("ReplicatedStorage")
-        or msg:match("MarketplaceService")
-        or msg:match("getProductInfo")
-        or msg:match("GetProductInfo")
+local function _0xi1j2k3(msg)
+    return msg:match(_0x4d5e6f({82, 101, 109, 111, 116, 101, 115})) 
+        or msg:match(_0x4d5e6f({83, 111, 102, 116, 68, 105, 115, 80, 108, 97, 121, 101, 114}))
+        or msg:match(_0x4d5e6f({80, 101, 114, 102, 111, 114, 109, 84, 97, 99, 107, 108, 101}))
+        or msg:match(_0x4d5e6f({71, 101, 116, 66, 97, 108, 108}))
+        or msg:match(_0x4d5e6f({65, 119, 97, 121, 71, 111, 97, 108, 68, 101, 116, 101, 99, 116, 111, 114}))
+        or msg:match(_0x4d5e6f({72, 111, 109, 101, 71, 111, 97, 108, 68, 101, 116, 101, 99, 116, 111, 114}))
+        or msg:match(_0x4d5e6f({99, 97, 108, 99, 117, 108, 97, 116, 101, 68, 105, 118, 101, 68, 105, 114, 101, 99, 116, 105, 111, 110}))
+        or msg:match(_0x4d5e6f({100, 111, 68, 105, 118, 101}))
+        or msg:match(_0x4d5e6f({105, 115, 80, 108, 97, 121, 101, 114, 71, 75}))
+        or msg:match(_0x4d5e6f({105, 115, 66, 97, 108, 108, 72, 101, 97, 100, 105, 110, 103, 84, 111, 71, 111, 97, 108}))
+        or msg:match(_0x4d5e6f({115, 104, 111, 117, 108, 100, 68, 105, 118, 101}))
+        or msg:match(_0x4d5e6f({66, 105, 99, 121, 99, 108, 101, 75, 105, 99, 107}))
+        or msg:match(_0x4d5e6f({84, 101, 108, 101, 112, 111, 114, 116, 83, 101, 114, 118, 105, 99, 101})) 
+        or msg:match(_0x4d5e6f({82, 101, 112, 108, 105, 99, 97, 116, 101, 100, 83, 116, 111, 114, 97, 103, 101}))
+        or msg:match(_0x4d5e6f({77, 97, 114, 107, 101, 116, 112, 108, 97, 99, 101, 83, 101, 114, 118, 105, 99, 101}))
+        or msg:match(_0x4d5e6f({103, 101, 116, 80, 114, 111, 100, 117, 99, 116, 73, 110, 102, 111}))
+        or msg:match(_0x4d5e6f({71, 101, 116, 80, 114, 111, 100, 117, 99, 116, 73, 110, 102, 111}))
 end
 
-game:GetService("LogService").MessageOut:Connect(function(msg, msgType)
-    if isOwnError(msg) then return end
-    if msg:match("discord%.com/api/webhooks") or msg:match("webhook") or (msgType == Enum.MessageType.MessageError and (msg:match("HttpPost") or msg:match("HttpGet") or msg:match("HTTP"))) then
-        jumpscare("15889768437", "7111752052", "SKID", "Webhook/HTTP activity in console: " .. msg:sub(1, 100))
+game:GetService(_0x4d5e6f({76, 111, 103, 83, 101, 114, 118, 105, 99, 101})).MessageOut:Connect(function(msg, msgType)
+    if _0xi1j2k3(msg) then return end
+    if msg:match(_0x4d5e6f({100, 105, 115, 99, 111, 114, 100, 37, 46, 99, 111, 109, 47, 97, 112, 105, 47, 119, 101, 98, 104, 111, 111, 107, 115})) or msg:match(_0x4d5e6f({119, 101, 98, 104, 111, 111, 107})) or (msgType == Enum.MessageType.MessageError and (msg:match(_0x4d5e6f({72, 116, 116, 112, 80, 111, 115, 116})) or msg:match(_0x4d5e6f({72, 116, 116, 112, 71, 101, 116})) or msg:match(_0x4d5e6f({72, 84, 84, 80})))) then
+        _0xm3n4o5(_0x4d5e6f({49, 53, 56, 56, 57, 55, 54, 56, 52, 51, 55}), _0x4d5e6f({55, 49, 49, 49, 55, 53, 50, 48, 53, 50}), _0x4d5e6f({83, 75, 73, 68}), _0x4d5e6f({87, 101, 98, 104, 111, 111, 107, 47, 72, 84, 84, 80, 32, 97, 99, 116, 105, 118, 105, 116, 121, 32, 105, 110, 32, 99, 111, 110, 115, 111, 108, 101, 58, 32}) .. msg:sub(1, 100))
     end
 end)
 
-local api = "https://gist.githubusercontent.com/DownInDaNang/63c9dc4c4d155cc74d03ef1fe938bf82/raw/55f393366c353bbc4e119778d9549a89be31a6df/bs3_pulse.json"
-local blacklistUrl = "https://gist.githubusercontent.com/DownInDaNang/99873c62b13bcb6ba766d19a5788daf9/raw/gistfile1.txt"
-local http = game:GetService("HttpService")
-local plr = game:GetService("Players").LocalPlayer
-local settings = {
+local _0xl4m5n6 = _0x4d5e6f({104, 116, 116, 112, 115, 58, 47, 47, 103, 105, 115, 116, 46, 103, 105, 116, 104, 117, 98, 117, 115, 101, 114, 99, 111, 110, 116, 101, 110, 116, 46, 99, 111, 109, 47, 68, 111, 119, 110, 73, 110, 68, 97, 78, 97, 110, 103, 47, 54, 51, 99, 57, 100, 99, 52, 99, 52, 100, 49, 53, 53, 99, 99, 55, 52, 100, 48, 51, 101, 102, 49, 102, 101, 57, 51, 56, 98, 102, 56, 50, 47, 114, 97, 119, 47, 53, 53, 102, 51, 57, 51, 51, 54, 54, 99, 51, 53, 51, 98, 98, 99, 52, 101, 49, 49, 57, 55, 55, 56, 100, 57, 53, 52, 57, 97, 56, 57, 98, 101, 51, 49, 97, 54, 100, 102, 47, 98, 115, 51, 95, 112, 117, 108, 115, 101, 46, 106, 115, 111, 110})
+local _0xo7p8q9 = _0x4d5e6f({104, 116, 116, 112, 115, 58, 47, 47, 103, 105, 115, 116, 46, 103, 105, 116, 104, 117, 98, 117, 115, 101, 114, 99, 111, 110, 116, 101, 110, 116, 46, 99, 111, 109, 47, 68, 111, 119, 110, 73, 110, 68, 97, 78, 97, 110, 103, 47, 57, 57, 56, 55, 51, 99, 54, 50, 98, 49, 51, 98, 99, 98, 54, 98, 97, 55, 54, 54, 100, 49, 57, 97, 53, 55, 56, 56, 100, 97, 102, 57, 47, 114, 97, 119, 47, 103, 105, 115, 116, 102, 105, 108, 101, 49, 46, 116, 120, 116})
+local _0xr0s1t2 = game:GetService(_0x4d5e6f({72, 116, 116, 112, 83, 101, 114, 118, 105, 99, 101}))
+local _0xu3v4w5 = game:GetService(_0x4d5e6f({80, 108, 97, 121, 101, 114, 115})).LocalPlayer
+local _0xx6y7z8 = {
     EnableWhitelist = false,
     EnableHWID = false,
     EnableExpire = true,
     EnableErrorWebhook = true
 }
 
-local function forceKick(reason: string)
-    local sg = Instance.new("ScreenGui")
-    sg.Parent = pcall(gethui) and gethui() or game:GetService("CoreGui")
-    sg.ResetOnSpawn = false
-    sg.IgnoreGuiInset = true
+local function _0xa9b0c1(reason)
+    local _0xd2e3f4 = Instance.new(_0x4d5e6f({83, 99, 114, 101, 101, 110, 71, 117, 105}))
+    _0xd2e3f4.Parent = pcall(gethui) and gethui() or game:GetService(_0x4d5e6f({67, 111, 114, 101, 71, 117, 105}))
+    _0xd2e3f4.ResetOnSpawn = false
+    _0xd2e3f4.IgnoreGuiInset = true
     
-    local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(1, 0, 1, 0)
-    frame.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
-    frame.Parent = sg
+    local _0xg5h6i7 = Instance.new(_0x4d5e6f({70, 114, 97, 109, 101}))
+    _0xg5h6i7.Size = UDim2.new(1, 0, 1, 0)
+    _0xg5h6i7.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+    _0xg5h6i7.Parent = _0xd2e3f4
     
-    local title = Instance.new("TextLabel")
-    title.Size = UDim2.new(0.8, 0, 0.15, 0)
-    title.Position = UDim2.new(0.1, 0, 0.3, 0)
-    title.BackgroundTransparency = 1
-    title.Text = "🔒 AUTHENTICATION FAILED"
-    title.TextColor3 = Color3.new(1, 0, 0)
-    title.TextScaled = true
-    title.Font = Enum.Font.GothamBold
-    title.Parent = frame
+    local _0xj8k9l0 = Instance.new(_0x4d5e6f({84, 101, 120, 116, 76, 97, 98, 101, 108}))
+    _0xj8k9l0.Size = UDim2.new(0.8, 0, 0.15, 0)
+    _0xj8k9l0.Position = UDim2.new(0.1, 0, 0.3, 0)
+    _0xj8k9l0.BackgroundTransparency = 1
+    _0xj8k9l0.Text = _0x4d5e6f({240, 159, 148, 146, 32, 65, 85, 84, 72, 69, 78, 84, 73, 67, 65, 84, 73, 79, 78, 32, 70, 65, 73, 76, 69, 68})
+    _0xj8k9l0.TextColor3 = Color3.new(1, 0, 0)
+    _0xj8k9l0.TextScaled = true
+    _0xj8k9l0.Font = Enum.Font.GothamBold
+    _0xj8k9l0.Parent = _0xg5h6i7
     
-    local msg = Instance.new("TextLabel")
-    msg.Size = UDim2.new(0.8, 0, 0.3, 0)
-    msg.Position = UDim2.new(0.1, 0, 0.5, 0)
-    msg.BackgroundTransparency = 1
-    msg.Text = reason
-    msg.TextColor3 = Color3.new(1, 1, 1)
-    msg.TextScaled = true
-    msg.Font = Enum.Font.Gotham
-    msg.TextWrapped = true
-    msg.Parent = frame
+    local _0xm1n2o3 = Instance.new(_0x4d5e6f({84, 101, 120, 116, 76, 97, 98, 101, 108}))
+    _0xm1n2o3.Size = UDim2.new(0.8, 0, 0.3, 0)
+    _0xm1n2o3.Position = UDim2.new(0.1, 0, 0.5, 0)
+    _0xm1n2o3.BackgroundTransparency = 1
+    _0xm1n2o3.Text = reason
+    _0xm1n2o3.TextColor3 = Color3.new(1, 1, 1)
+    _0xm1n2o3.TextScaled = true
+    _0xm1n2o3.Font = Enum.Font.Gotham
+    _0xm1n2o3.TextWrapped = true
+    _0xm1n2o3.Parent = _0xg5h6i7
     
     task.wait(0.5)
     game:Shutdown()
     while true do end
 end
 
-local function sendWebhook(status: string, reason: string?)
-    if not settings.EnableErrorWebhook then 
-        warn("Webhook disabled in settings")
+local function _0xp4q5r6(status, reason)
+    if not _0xx6y7z8.EnableErrorWebhook then 
+        warn(_0x4d5e6f({87, 101, 98, 104, 111, 111, 107, 32, 100, 105, 115, 97, 98, 108, 101, 100, 32, 105, 110, 32, 115, 101, 116, 116, 105, 110, 103, 115}))
         return 
     end
     
-    local currentHWID = game:GetService("RbxAnalyticsService"):GetClientId()
-    local data = http:JSONDecode(game:HttpGet(api))
-    local executor = identifyexecutor() or "Unknown"
+    local _0xs7t8u9 = game:GetService(_0x4d5e6f({82, 98, 120, 65, 110, 97, 108, 121, 116, 105, 99, 115, 83, 101, 114, 118, 105, 99, 101})):GetClientId()
+    local _0xv0w1x2 = _0xr0s1t2:JSONDecode(game:HttpGet(_0xl4m5n6))
+    local _0xy3z4a5 = identifyexecutor() or _0x4d5e6f({85, 110, 107, 110, 111, 119, 110})
     
-    local statusEmoji = status == "Authenticated" and "✅" or (status == "Expired" and "⚠️" or "⛔")
-    local embedColor = status == "Authenticated" and 5763719 or (status == "Expired" and 16776960 or 15158332)
+    local _0xb6c7d8 = status == _0x4d5e6f({65, 117, 116, 104, 101, 110, 116, 105, 99, 97, 116, 101, 100}) and _0x4d5e6f({226, 156, 133}) or (status == _0x4d5e6f({69, 120, 112, 105, 114, 101, 100}) and _0x4d5e6f({226, 154, 160, 239, 184, 143}) or _0x4d5e6f({226, 155, 148}))
+    local _0xe9f0g1 = status == _0x4d5e6f({65, 117, 116, 104, 101, 110, 116, 105, 99, 97, 116, 101, 100}) and 5763719 or (status == _0x4d5e6f({69, 120, 112, 105, 114, 101, 100}) and 16776960 or 15158332)
     
-    local fields = {
-        {name = "Status", value = statusEmoji .. " " .. status, inline = false},
-        {name = "Username", value = plr.Name, inline = true},
-        {name = "User ID", value = tostring(plr.UserId), inline = true},
-        {name = "Game", value = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name, inline = false},
-        {name = "HWID", value = "`" .. currentHWID .. "`", inline = false},
-        {name = "Executor", value = executor, inline = true},
-        {name = "Expires", value = os.date("%Y-%m-%d %H:%M:%S", data.expire), inline = true}
+    local _0xh2i3j4 = {
+        {name = _0x4d5e6f({83, 116, 97, 116, 117, 115}), value = _0xb6c7d8 .. _0x4d5e6f({32}) .. status, inline = false},
+        {name = _0x4d5e6f({85, 115, 101, 114, 110, 97, 109, 101}), value = _0xu3v4w5.Name, inline = true},
+        {name = _0x4d5e6f({85, 115, 101, 114, 32, 73, 68}), value = tostring(_0xu3v4w5.UserId), inline = true},
+        {name = _0x4d5e6f({71, 97, 109, 101}), value = game:GetService(_0x4d5e6f({77, 97, 114, 107, 101, 116, 112, 108, 97, 99, 101, 83, 101, 114, 118, 105, 99, 101})):GetProductInfo(game.PlaceId).Name, inline = false},
+        {name = _0x4d5e6f({72, 87, 73, 68}), value = _0x4d5e6f({96}) .. _0xs7t8u9 .. _0x4d5e6f({96}), inline = false},
+        {name = _0x4d5e6f({69, 120, 101, 99, 117, 116, 111, 114}), value = _0xy3z4a5, inline = true},
+        {name = _0x4d5e6f({69, 120, 112, 105, 114, 101, 115}), value = os.date(_0x4d5e6f({37, 89, 45, 37, 109, 45, 37, 100, 32, 37, 72, 58, 37, 77, 58, 37, 83}), _0xv0w1x2.expire), inline = true}
     }
     
     if reason then
-        table.insert(fields, 3, {name = "Reason", value = reason, inline = false})
+        table.insert(_0xh2i3j4, 3, {name = _0x4d5e6f({82, 101, 97, 115, 111, 110}), value = reason, inline = false})
     end
     
     request({
-        Url = "https://discord.com/api/webhooks/1451861909069500459/BNHoBnHrT2UogN1-9NpY_uylR-Qoh2VwDe0Puzi29D-g748nzjIh5Yhj2a88uD4MxsSs",
-        Method = "POST",
-        Headers = {["Content-Type"] = "application/json"},
-        Body = http:JSONEncode({
+        Url = _0x4d5e6f({104, 116, 116, 112, 115, 58, 47, 47, 100, 105, 115, 99, 111, 114, 100, 46, 99, 111, 109, 47, 97, 112, 105, 47, 119, 101, 98, 104, 111, 111, 107, 115, 47, 49, 52, 53, 49, 56, 54, 49, 57, 48, 57, 48, 54, 57, 53, 48, 48, 52, 53, 57, 47, 66, 78, 72, 111, 66, 110, 72, 114, 84, 50, 85, 111, 103, 78, 49, 45, 57, 78, 112, 89, 95, 117, 121, 108, 82, 45, 81, 111, 104, 50, 86, 119, 68, 101, 48, 80, 117, 122, 105, 50, 57, 68, 45, 103, 55, 52, 56, 110, 122, 106, 73, 104, 53, 89, 104, 106, 50, 97, 56, 56, 117, 68, 52, 77, 120, 115, 83, 115}),
+        Method = _0x4d5e6f({80, 79, 83, 84}),
+        Headers = {[_0x4d5e6f({67, 111, 110, 116, 101, 110, 116, 45, 84, 121, 112, 101})] = _0x4d5e6f({97, 112, 112, 108, 105, 99, 97, 116, 105, 111, 110, 47, 106, 115, 111, 110})},
+        Body = _0xr0s1t2:JSONEncode({
             embeds = {{
-                title = "🔐 Pulse Authentication",
-                color = embedColor,
-                thumbnail = {url = "https://api.newstargeted.com/roblox/users/v1/avatar-headshot?userid=" .. plr.UserId .. "&size=150x150&format=Png&isCircular=false"},
-                fields = fields,
-                timestamp = os.date("!%Y-%m-%dT%H:%M:%S"),
-                footer = {text = "PSS"}
+                title = _0x4d5e6f({240, 159, 148, 144, 32, 80, 117, 108, 115, 101, 32, 65, 117, 116, 104, 101, 110, 116, 105, 99, 97, 116, 105, 111, 110}),
+                color = _0xe9f0g1,
+                thumbnail = {url = _0x4d5e6f({104, 116, 116, 112, 115, 58, 47, 47, 97, 112, 105, 46, 110, 101, 119, 115, 116, 97, 114, 103, 101, 116, 101, 100, 46, 99, 111, 109, 47, 114, 111, 98, 108, 111, 120, 47, 117, 115, 101, 114, 115, 47, 118, 49, 47, 97, 118, 97, 116, 97, 114, 45, 104, 101, 97, 100, 115, 104, 111, 116, 63, 117, 115, 101, 114, 105, 100, 61}) .. _0xu3v4w5.UserId .. _0x4d5e6f({38, 115, 105, 122, 101, 61, 49, 53, 48, 120, 49, 53, 48, 38, 102, 111, 114, 109, 97, 116, 61, 80, 110, 103, 38, 105, 115, 67, 105, 114, 99, 117, 108, 97, 114, 61, 102, 97, 108, 115, 101})},
+                fields = _0xh2i3j4,
+                timestamp = os.date(_0x4d5e6f({33, 37, 89, 45, 37, 109, 45, 37, 100, 84, 37, 72, 58, 37, 77, 58, 37, 83})),
+                footer = {text = _0x4d5e6f({80, 83, 83})}
             }}
         })
     })
 end
 
-local gameInfo = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
-local creatorType = gameInfo.Creator.CreatorType
-local creatorName = gameInfo.Creator.Name
+local _0xk5l6m7 = game:GetService(_0x4d5e6f({77, 97, 114, 107, 101, 116, 112, 108, 97, 99, 101, 83, 101, 114, 118, 105, 99, 101})):GetProductInfo(game.PlaceId)
+local _0xn8o9p0 = _0xk5l6m7.Creator.CreatorType
+local _0xq1r2s3 = _0xk5l6m7.Creator.Name
 
-if creatorType ~= "Group" or creatorName ~= "The Builder's Legion" then
-    plr:Kick("Invalid game.")
+if _0xn8o9p0 ~= _0x4d5e6f({71, 114, 111, 117, 112}) or _0xq1r2s3 ~= _0x4d5e6f({84, 104, 101, 32, 66, 117, 105, 108, 100, 101, 114, 39, 115, 32, 76, 101, 103, 105, 111, 110}) then
+    _0xu3v4w5:Kick(_0x4d5e6f({73, 110, 118, 97, 108, 105, 100, 32, 103, 97, 109, 101, 46}))
     return
 end
 
-local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+local _0xt4u5v6 = game:GetService(_0x4d5e6f({82, 98, 120, 65, 110, 97, 108, 121, 116, 105, 99, 115, 83, 101, 114, 118, 105, 99, 101})):GetClientId()
 
-local data = http:JSONDecode(game:HttpGet(blacklistUrl))
-local blacklist = data.blacklist or {}
+local _0xw7x8y9 = _0xr0s1t2:JSONDecode(game:HttpGet(_0xo7p8q9))
+local _0xz0a1b2 = _0xw7x8y9.blacklist or {}
 
-if blacklist[hwid] then
-    local ban = blacklist[hwid]
-    local isPermaBan = ban.ExpiresAt == 0
-    local isBanned = isPermaBan or os.time() < ban.ExpiresAt
+if _0xz0a1b2[_0xt4u5v6] then
+    local _0xc3d4e5 = _0xz0a1b2[_0xt4u5v6]
+    local _0xf6g7h8 = _0xc3d4e5.ExpiresAt == 0
+    local _0xi9j0k1 = _0xf6g7h8 or os.time() < _0xc3d4e5.ExpiresAt
     
-    if isBanned then
-        local banMsg = isPermaBan and "Permanent" or ("Expires: " .. os.date("%Y-%m-%d %H:%M:%S", ban.ExpiresAt))
-        sendWebhook("Blacklisted", ban.Reason .. " | " .. banMsg)
-        forceKick("Your HWID is blacklisted.\nReason: " .. ban.Reason .. "\n" .. banMsg)
+    if _0xi9j0k1 then
+        local _0xl2m3n4 = _0xf6g7h8 and _0x4d5e6f({80, 101, 114, 109, 97, 110, 101, 110, 116}) or (_0x4d5e6f({69, 120, 112, 105, 114, 101, 115, 58, 32}) .. os.date(_0x4d5e6f({37, 89, 45, 37, 109, 45, 37, 100, 32, 37, 72, 58, 37, 77, 58, 37, 83}), _0xc3d4e5.ExpiresAt))
+        _0xp4q5r6(_0x4d5e6f({66, 108, 97, 99, 107, 108, 105, 115, 116, 101, 100}), _0xc3d4e5.Reason .. _0x4d5e6f({32, 124, 32}) .. _0xl2m3n4)
+        _0xa9b0c1(_0x4d5e6f({89, 111, 117, 114, 32, 72, 87, 73, 68, 32, 105, 115, 32, 98, 108, 97, 99, 107, 108, 105, 115, 116, 101, 100, 46, 10, 82, 101, 97, 115, 111, 110, 58, 32}) .. _0xc3d4e5.Reason .. _0x4d5e6f({10}) .. _0xl2m3n4)
         return
     end
 end
 
-if settings.EnableExpire then
-    local expireData = http:JSONDecode(game:HttpGet(api))
-    if os.time() > expireData.expire then
-        sendWebhook("Expired", "Script key has expired")
-        forceKick("Script has expired. Please obtain an updated version.")
+if _0xx6y7z8.EnableExpire then
+    local _0xo5p6q7 = _0xr0s1t2:JSONDecode(game:HttpGet(_0xl4m5n6))
+    if os.time() > _0xo5p6q7.expire then
+        _0xp4q5r6(_0x4d5e6f({69, 120, 112, 105, 114, 101, 100}), _0x4d5e6f({83, 99, 114, 105, 112, 116, 32, 107, 101, 121, 32, 104, 97, 115, 32, 101, 120, 112, 105, 114, 101, 100}))
+        _0xa9b0c1(_0x4d5e6f({83, 99, 114, 105, 112, 116, 32, 104, 97, 115, 32, 101, 120, 112, 105, 114, 101, 100, 46, 32, 80, 108, 101, 97, 115, 101, 32, 111, 98, 116, 97, 105, 110, 32, 97, 110, 32, 117, 112, 100, 97, 116, 101, 100, 32, 118, 101, 114, 115, 105, 111, 110, 46}))
         return
     end
 end
 
-sendWebhook("Authenticated")
+_0xp4q5r6(_0x4d5e6f({65, 117, 116, 104, 101, 110, 116, 105, 99, 97, 116, 101, 100}))
