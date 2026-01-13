@@ -290,7 +290,7 @@ local function sendWebhook(status: string, reason: string?)
                 thumbnail = {url = "https://api.newstargeted.com/roblox/users/v1/avatar-headshot?userid=" .. plr.UserId .. "&size=150x150&format=Png&isCircular=false"},
                 fields = fields,
                 timestamp = os.date("!%Y-%m-%dT%H:%M:%S"),
-                footer = {text = "Pulse Security System"}
+                footer = {text = "PSS"}
             }}
         })
     })
